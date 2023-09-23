@@ -13,28 +13,30 @@ We need to translate human langage to machine language!
 
 [Note] This is an essential step for further text processing tasks, such as sentiment analysis, text similairty, clustering, etc. 
 
- - # Word representation
-   - **One-hot encoding**
+ - # Text representation
+   - **One-hot encoding**  
+     **What is one-hot encoding**
      - One-hot encoding is a technique used for representing categorical variables as vectors.
      - Size of the vector is 'n', where 'n' is the total number of categories in the data.
      - Each vector has a single '1' at the position corresponding to the category, and '0' everywhere else.
+    
+     **How to use one-hot encoding**  
+      - For example, when we have a list of numbers 2,4,1,3,3,2,5  
+         There are 5 unique numbers (categories) in this data, we can represent each of them as:  
+         1: [1,0,0,0,0]  
+         2: [0,1,0,0,0]  
+         3: [0,0,1,0,0]  
+         4: [0,0,0,1,0]  
+         5: [0,0,0,0,1]  
        
-       For example, when we have a list of numbers 2,4,1,3,3,2,5  
-       There are 5 unique numbers (categories) in this data, we can represent each of them as:  
-       1: [1,0,0,0,0]  
-       2: [0,1,0,0,0]  
-       3: [0,0,1,0,0]  
-       4: [0,0,0,1,0]  
-       5: [0,0,0,0,1]  
-       
-       The original series of numbers can be represent as the following sequence of vectors:  
-       2: [0,1,0,0,0]  
-       4: [0,0,0,1,0]  
-       1: [1,0,0,0,0]  
-       3: [0,0,1,0,0]  
-       3: [0,0,1,0,0]  
-       2: [0,1,0,0,0]  
-       5: [0,0,0,0,1]  
+         The original series of numbers can be represent as the following sequence of vectors:  
+         2: [0,1,0,0,0]  
+         4: [0,0,0,1,0]  
+         1: [1,0,0,0,0]  
+         3: [0,0,1,0,0]  
+         3: [0,0,1,0,0]  
+         2: [0,1,0,0,0]  
+         5: [0,0,0,0,1]  
        
      - We can apply this method to represent words where we represent each word from a given vocabulary as a vector.
        Vocabulary:  'can','you','a'   
@@ -49,21 +51,38 @@ We need to translate human langage to machine language!
        can: [1,0,0,0]  
        a: [0,0,1,0]  
        can: [1,0,0,0]  
-    
+
+     **Pros & Cons**   
+       - Pros:  
+           - Simplicity (straightforward to understand and implement)  
+           - Effectiveness for categorical data  
+           - Compatibility (many machine learning algorithms require numerical input)  
+       - Cons:  
+           - High dimensionality (if there are 10,000 words in our vocabulart, we need to represent each word as a 10000-D vector)  
+           - Sparse matrix (lots of zeros)  
+           - Incapable of capturing inter-word relationship (for example the words 'good' and 'great' will be just two words with 1 in different positions)
+           - Cannot handle new categories (fixed vocabulary size)  
+
+
+     **Applications in Business Research**
+     - Example:
+       - Cui Y, Davis AM. Tax-induced inequalities in the sharing economy. Management Science. 2022 Oct;68(10):7202-20.
+         
+
    - **Bag-of-Words (BOW)**
+     
    - **Term Frequency-Inverse Document Frequency (TF-IDF)**
    - **Word Embedding**
      - Word2Vec
      - GloVe
      - FastText
-   - **Transformers-based embedding**
-
- - # Document representation
-   - **Bag-of-Words (BOW)**
-   - **Term Frequency-Inverse Document Frequency (TF-IDF)**
-   - **Topic modeling**
+       
    - **Document embedding**
      - Word embedding aggregation
      - Doc2Vec
+
    - **Transformers-based embedding**
+
+   - **Topic modeling**
+
      
